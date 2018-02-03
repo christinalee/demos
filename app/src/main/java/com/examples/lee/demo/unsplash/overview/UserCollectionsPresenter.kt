@@ -81,7 +81,7 @@ class UserCollectionsPresenter(private val feedView: UserCollectionsContract.Use
     override fun onBindFeedCellViewAtPosition(position: Int, view: UserCollectionsCellView) {
         val data = sampleData[position]
         view.setTitle(data.title)
-        data.photos.first().let {  view.setImageUrl(it.urls.regular) }
+        view.setPhotos(data.photos)
         view.setOnClickListener { onCellClickedAtPosition(position) }
     }
 

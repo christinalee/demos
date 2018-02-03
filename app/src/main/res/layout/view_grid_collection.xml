@@ -2,8 +2,11 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="wrap_content" android:minHeight="128dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="128dp"
+    android:paddingBottom="8dp">
 
     <TextView android:layout_width="0dp"
               android:layout_height="wrap_content"
@@ -24,12 +27,63 @@
 
     <ImageView android:layout_width="0dp"
                android:layout_height="0dp"
+               app:layout_constraintDimensionRatio="1:1"
                android:id="@+id/collectionCoverPhoto"
                android:contentDescription="@string/collection_cover_photo_description"
                app:srcCompat="@drawable/tree_of_life" android:scaleType="centerCrop"
-               android:layout_marginTop="0dp" app:layout_constraintTop_toTopOf="parent"
-               app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="0dp"
-               android:layout_marginEnd="0dp" app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="0dp"/>
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toStartOf="@id/guideline"/>
+
+    <android.support.constraint.Guideline android:layout_width="wrap_content"
+                                          android:layout_height="wrap_content"
+                                          android:id="@+id/guideline"
+                                          android:orientation="vertical"
+                                          app:layout_constraintGuide_percent="0.5"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/elephant_pillow"
+        android:id="@+id/image1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/image3"
+        app:layout_constraintLeft_toLeftOf="@id/guideline"
+        app:layout_constraintRight_toLeftOf="@id/image2"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/elephant_pillow"
+        android:id="@+id/image2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/image4"
+        app:layout_constraintLeft_toRightOf="@id/image1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/elephant_pillow"
+        android:id="@+id/image3"
+        app:layout_constraintTop_toBottomOf="@id/image1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/guideline"
+        app:layout_constraintRight_toLeftOf="@id/image4"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/elephant_pillow"
+        android:id="@+id/image4"
+        app:layout_constraintTop_toBottomOf="@id/image2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/image3"
+        app:layout_constraintRight_toRightOf="parent"
+        android:scaleType="centerCrop"/>
 
 </android.support.constraint.ConstraintLayout>
