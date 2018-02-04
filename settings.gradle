@@ -1,1 +1,1 @@
-include ':app', ':models', ':networking', ':mvp'
+include ':app', ':models', ':networking', ':mvp', ':ui'

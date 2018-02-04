@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
 
 android {
     compileSdkVersion 26
@@ -33,6 +35,7 @@ dependencies {
     implementation project(':models')
     implementation project(':networking')
     implementation project(':mvp')
+    implementation project(':ui')
 
     implementation 'com.android.support:appcompat-v7:26.1.0'
     testImplementation 'junit:junit:4.12'
