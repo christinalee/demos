@@ -23,28 +23,17 @@ class UserCollectionViewHolder(itemView: View):
     }
 
     override fun setPhotos(photos: List<Photo>) {
-        //TODO: vet number of photos being passed in and accomodate less than 5
-        // TODO: remove copy paste loads and do this functionally
-        Picasso.with(itemView.context)
-                .load(photos[0].urls.regular)
-                .into(coverPhoto)
+        val picasso = Picasso.with(itemView.context)
 
-        Picasso.with(itemView.context)
-                .load(photos[1].urls.regular)
-                .into(image1)
+        val urls = photos.map { it.urls.regular }
+        val imageViews = arrayOf(coverPhoto, image1, image2, image3, image4)
 
-        Picasso.with(itemView.context)
-                .load(photos[2].urls.regular)
-                .into(image2)
-
-        Picasso.with(itemView.context)
-                .load(photos[3].urls.regular)
-                .into(image3)
-
-        Picasso.with(itemView.context)
-                .load(photos[4].urls.regular)
-                .into(image4)
-
+        imageViews
+                .zip(urls)
+                .forEach {
+                    val (photo, url) = it
+                    picasso.load(url).into(photo)
+                }
     }
 
     override fun setOnClickListener(listener: () -> Unit) {
